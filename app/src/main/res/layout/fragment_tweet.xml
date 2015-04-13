@@ -1,0 +1,38 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TweetActivity$PlaceholderFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:text="@string/tweet_label"/>
+
+    <TextView
+        android:text="@string/tweet_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="top|left"
+        android:background="@color/fog"
+        android:hint="@string/tweet_hint"/>
+
+     <Button
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center_horizontal"
+         android:text="@string/tweet_post" />
+
+</LinearLayout>

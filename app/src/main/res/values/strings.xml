@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Yamba</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="tweet_label">Tweet</string>
+    <string name="tweet_count">140</string>
+    <string name="tweet_hint">\'zup?</string>
+    <string name="tweet_post">Post</string>
+</resources>
