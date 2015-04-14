@@ -7,4 +7,8 @@
     <string name="tweet_count">140</string>
     <string name="tweet_hint">\'zup?</string>
     <string name="tweet_post">Post</string>
+
+
+    <string name="tweet_succeeded">Posted!</string>
+    <string name="tweet_failed">Failed!</string>
 </resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- tweet display config -->
+    <integer name="tweet_limit">140</integer>
+    <integer name="warn_limit">10</integer>
+    <integer name="err_limit">0</integer>
+</resources>

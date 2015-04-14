@@ -5,4 +5,13 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="yambaText" parent="android:TextAppearance">
+        <item name="android:textColor">@color/accent</item>
+    </style>
+
+    <style name="yambaText.label">
+        <item name="android:textSize">48sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

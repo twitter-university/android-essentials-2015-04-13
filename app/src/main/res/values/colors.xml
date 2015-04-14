@@ -4,6 +4,11 @@
     <color name="primary">#55acee</color>
     <color name="secondary">#66757f</color>
     <color name="accent">#292f33</color>
-    <color name="fog">#aae1e8ed</color>
+
+    <color name="fog">#cce1e8ed</color>
+
+    <color name="count_ok">#008800</color>
+    <color name="count_warn">#ffbb00</color>
+    <color name="count_err">#ff0000</color>
 
 </resources>

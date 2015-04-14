@@ -1,0 +1,53 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".TweetFragment">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2">
+
+        <TextView
+            android:id="@+id/tweet_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/tweet_label"
+            style="@style/yambaText.label" />
+
+        <TextView
+            android:id="@+id/tweet_count"
+            android:text="@string/tweet_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tweet_label"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/count_ok"/>
+
+        <Button
+            android:id="@+id/tweet_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:text="@string/tweet_post" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/tweet_text"
+        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="3"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:gravity="top|left"
+        android:background="@color/fog"
+        android:padding="@dimen/activity_vertical_margin"
+        android:hint="@string/tweet_hint"
+        android:enabled="false"/>
+
+</LinearLayout>
