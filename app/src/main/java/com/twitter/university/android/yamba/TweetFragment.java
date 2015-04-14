@@ -4,7 +4,9 @@
 package com.twitter.university.android.yamba;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.content.res.Resources;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,12 +16,48 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * A placeholder fragment containing a simple view.
  */
 public class TweetFragment extends Fragment {
     private static final String TAG = "TWEET";
+
+    private static class Poster extends AsyncTask<String, Void, Integer> {
+        private final Context ctxt;
+
+        private Poster(Context ctxt) { this.ctxt = ctxt.getApplicationContext(); }
+
+        @Override
+        protected Integer doInBackground(String... params) {
+            String tweet = params[0];
+
+            // Simulate failing network call
+            try { Thread.sleep(3 * 30 * 1000); }
+            catch (InterruptedException ignore) { }
+
+            return Integer.valueOf(R.string.tweet_succeeded);
+        }
+
+        @Override
+        protected void onPostExecute(Integer msg) {
+            finish(msg.intValue());
+        }
+
+        @Override
+        protected void onCancelled() {
+            finish(R.string.tweet_failed);
+        }
+
+        private void finish(int msg) {
+            Toast.makeText(ctxt, msg, Toast.LENGTH_LONG).show();
+            poster = null;
+        }
+    }
+
+    static Poster poster;
+
 
     private int tweetMaxLen;
     private int tweetWarnLen;
@@ -99,6 +137,8 @@ public class TweetFragment extends Fragment {
     }
 
     void post() {
+        if (null != poster) { return; }
+
         String tweet = tweetText.getText().toString();
         if (BuildConfig.DEBUG) { Log.d(TAG, "posting: " + tweet); }
 
@@ -107,9 +147,8 @@ public class TweetFragment extends Fragment {
         tweetSubmit.setEnabled(false);
         tweetText.setText(null);
 
-        // Simulate failing network call
-        try { Thread.sleep(3 * 30 * 1000); }
-        catch (InterruptedException ignore) { }
+        poster = new Poster(getActivity());
+        poster.execute(tweet);
     }
 
     private boolean canPost(int n) {
