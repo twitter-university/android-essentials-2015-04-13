@@ -3,6 +3,7 @@
  */
 package com.twitter.university.android.yamba;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -15,10 +16,15 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.twitter.university.android.yamba.service.YambaServiceHelper;
+
 
 public class TweetFragment extends Fragment {
     private static final String TAG = "TWEET";
 
+    public static interface TweetCallbacks {
+        void postTweet(String tweet);
+    }
 
     private int tweetMaxLen;
     private int tweetWarnLen;
@@ -31,6 +37,18 @@ public class TweetFragment extends Fragment {
     private EditText tweetText;
     private TextView tweetCount;
     private View tweetSubmit;
+    private YambaServiceHelper svcHelper;
+    private TweetCallbacks callbackHdlr;
+
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try { callbackHdlr = (TweetCallbacks) activity; }
+        catch (ClassCastException e) {
+            throw new RuntimeException("Activity must implement TweetCallbacks");
+        }
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -106,7 +124,7 @@ public class TweetFragment extends Fragment {
         tweetSubmit.setEnabled(false);
         tweetText.setText(null);
 
-        YambaService.post(getActivity(), tweet);
+        callbackHdlr.postTweet(tweet);
     }
 
     private boolean canPost(int n) {
