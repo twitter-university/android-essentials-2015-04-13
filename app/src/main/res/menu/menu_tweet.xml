@@ -1,8 +1,20 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:tools="http://schemas.android.com/tools"
       tools:context=".TweetActivity">
-    <item android:id="@+id/action_settings"
-          android:title="@string/action_settings"
-          android:orderInCategory="100"
-          android:showAsAction="never"/>
+
+    <item android:id="@+id/action_tweet"
+          android:title="@string/menu_tweet"
+          android:orderInCategory="10"
+          android:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/action_timeline"
+        android:title="@string/menu_timeline"
+        android:orderInCategory="10"
+        android:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/action_about"
+        android:title="@string/menu_about"
+        android:orderInCategory="100"
+        android:showAsAction="never"/>
 </menu>

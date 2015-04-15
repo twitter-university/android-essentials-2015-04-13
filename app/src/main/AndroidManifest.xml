@@ -6,13 +6,19 @@
     <uses-permission
         android:name="com.twitter.university.android.yamba.service.permission.EXECUTE" />
 
+    <uses-permission
+        android:name="com.twitter.university.android.yamba.service.permission.RECEIVE_POST_COMPLETE"/>
+
+    <uses-permission
+        android:name="com.twitter.university.android.yamba.timeline.permission.READ" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".TweetActivity"
+            android:name=".TimelineActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".TweetActivity" />
     </application>
 
 </manifest>
